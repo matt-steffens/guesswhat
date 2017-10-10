@@ -1,0 +1,20 @@
+﻿@model GuessWhat.Web.Models.Home.IndexViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Please pick and remember an animal for guessing</h3>
+        <p>
+            <ul>
+                @foreach (var animal in Model.AllAnimalNames)
+                {
+                    <li>@animal</li>
+                }
+            </ul>
+        </p>
+        <p>@Html.ActionLink("Begin", "Question", "Home", new { @class = "btn"})</p>
+ </div>
+</div>

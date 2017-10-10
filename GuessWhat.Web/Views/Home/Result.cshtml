@@ -1,0 +1,24 @@
+﻿@using GuessWhat.Web.Controllers
+@model string
+
+@{
+    ViewBag.Title = "Result";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Your chosen animal is:</h3>
+        <p>
+            <h1 style="color: red">@Model</h1>
+        </p>
+        <br />
+    </div>
+    <p>
+        @Html.ActionLink("Start Again", "Index", "Home", new { @class = "btn" })
+
+        @if (Model == HomeController.Unknown)
+        {
+            <span>|</span>@Html.ActionLink("Repeat", "ResetQuestions", "Home", new { @class = "btn" })
+        }
+    </p>
+</div>

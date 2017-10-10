@@ -1,0 +1,27 @@
+﻿@model GuessWhat.Web.Models.Home.QuestionViewModel
+
+@{
+    ViewBag.Title = "Ask Question";
+}
+
+<h2>Question #@ViewBag.QuestionCount</h2>
+<div class="row">
+    @using (Html.BeginForm("Question", "Home"))
+    {
+        @Html.HiddenFor(m => m.Value)
+        <div class="col-md-12">
+            <h3>An animal:</h3>
+            <p>
+                <h1 style="font-style: italic">@Model.Value</h1>
+            </p>
+            <br />
+            <fieldset>
+                <legend>Your Answer</legend>    
+                @Html.RadioButtonFor(m => m.Answer, true) Yes
+                @Html.RadioButtonFor(m => m.Answer, false) No
+            </fieldset>
+            <br />
+        </div>
+        <p><button id="btnNext" name="btnNext" class="btn-primary">Next Question</button></p>
+    }
+</div> 
